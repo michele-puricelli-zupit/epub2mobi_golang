@@ -1,0 +1,11 @@
+.DS_Store
+
+# Build output
+bin/
+dist/
+coverage.out
+
+# Local ebook folders
+ebooks/
+converted/
+mobi/
