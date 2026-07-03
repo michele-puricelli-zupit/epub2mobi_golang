@@ -23,7 +23,10 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
+const ebookConvert = "ebook-convert"
+
 func main() {
+
 	a := app.NewWithID("epub2mobi.gui")
 	w := a.NewWindow("EPUB to Kindle Converter")
 	w.Resize(fyne.NewSize(760, 560))
@@ -33,8 +36,8 @@ func main() {
 	outputEntry := widget.NewEntry()
 	outputEntry.SetPlaceHolder("Cartella di output; vuota = <input>/<format>")
 	converterEntry := widget.NewEntry()
-	converterEntry.SetText("ebook-convert")
-	converterEntry.SetPlaceHolder("ebook-convert")
+	converterEntry.SetText(ebookConvert)
+	converterEntry.SetPlaceHolder(ebookConvert)
 
 	formatSelect := widget.NewSelect([]string{"mobi", "azw3"}, nil)
 	formatSelect.SetSelected("azw3")
@@ -297,7 +300,7 @@ func buildConfigs(values uiValues) (runner.Config, calibre.Config, error) {
 
 	converterPath := strings.TrimSpace(values.converterPath)
 	if converterPath == "" {
-		converterPath = "ebook-convert"
+		converterPath = ebookConvert
 	}
 
 	cfg := runner.Config{
